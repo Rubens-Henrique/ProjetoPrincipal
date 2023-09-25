@@ -1,9 +1,10 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 import 'Mapa.dart';
 import 'Perfil.dart';
 import 'Sobre.dart';
 import 'package:animated_login/animated_login.dart';
+
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -20,10 +21,10 @@ class _InicioState extends State<Inicio> {
   int _indiceAtual = 0;
   final List<Widget> _telas = [
     Home("Início"),
-    LoginScreen(),
+    LoginScreen(), // Agora inclui a tela LoginScreen diretamente aqui
     Sobre("O aplicativo MinasUAI é um aplicativo que visa ajudar as viajantes a encontrarem não só os "
         "destinos mais atrativos para se divertir, como também buscar restaurantes,hospedagem e muito mais.Tudo isso em um só aplicativo"),
-    Mapa("Meu Mapa")
+    Mapa()
   ];
 
   void onTabTapped(int index) {
@@ -42,7 +43,7 @@ class _InicioState extends State<Inicio> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indiceAtual,
         unselectedItemColor: Colors.red,
-        selectedItemColor: Colors.yellow,
+        selectedItemColor: Colors.black,
         onTap: onTabTapped,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Início",backgroundColor: Colors.black),
@@ -62,10 +63,42 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(texto),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Minas UAI'),
       ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          _image(),
+          Center(
+            child: Text(
+              'Bem-vindo ao Minas UAI',
+              style: TextStyle(
+                fontSize: 150,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+              child: Text('Clique aqui para continuar'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _image() {
+    return Image.asset(
+      "assets/images/paisagen.jpg",
+      fit: BoxFit.cover,
     );
   }
 }
