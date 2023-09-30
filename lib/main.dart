@@ -22,7 +22,8 @@ class _InicioState extends State<Inicio> {
   final List<Widget> _telas = [
     Home("Início"),
     LoginScreen(), // Agora inclui a tela LoginScreen diretamente aqui
-    Sobre("O aplicativo MinasUAI é um aplicativo que visa ajudar as viajantes a encontrarem não só os "
+    Sobre(
+        "O aplicativo UAI, GÔ é um aplicativo que visa ajudar as viajantes a encontrarem não só os "
         "destinos mais atrativos para se divertir, como também buscar restaurantes,hospedagem e muito mais.Tudo isso em um só aplicativo"),
     Mapa()
   ];
@@ -37,19 +38,31 @@ class _InicioState extends State<Inicio> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Minas UAI"),
+        title: Text("UAI, GÔ"),
       ),
       body: _telas[_indiceAtual],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indiceAtual,
-        unselectedItemColor: Colors.red,
-        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.white,
         onTap: onTabTapped,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Início",backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Perfil",backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.info), label: "Sobre",backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.map), label: "Mapa", backgroundColor: Colors.black),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Início",
+              backgroundColor: Colors.blue),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "Perfil",
+              backgroundColor: Colors.blue),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.info),
+              label: "Sobre",
+              backgroundColor: Colors.blue),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.map),
+              label: "Mapa",
+              backgroundColor: Colors.blue),
         ],
       ),
     );
@@ -65,19 +78,20 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Minas UAI'),
+        title: Text('Home'),
       ),
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
           _image(),
-          Center(
+          Align(
+            alignment: Alignment.topCenter,
             child: Text(
-              'Bem-vindo ao Minas UAI',
+              'Bem vindo ao UAI, GÔ',
               style: TextStyle(
-                fontSize: 150,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.blue,
               ),
             ),
           ),
@@ -85,7 +99,8 @@ class Home extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
               },
               child: Text('Clique aqui para continuar'),
             ),
@@ -97,8 +112,7 @@ class Home extends StatelessWidget {
 
   Widget _image() {
     return Image.asset(
-      "assets/images/paisagen.jpg",
-      fit: BoxFit.cover,
+      "assets/images/Logoapp.png",
     );
   }
 }

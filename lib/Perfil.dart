@@ -2,7 +2,7 @@ import 'package:animated_login/animated_login.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_login/animated_login.dart';
 
-class  LoginScreen extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   /// Simulates the multilanguage, you will implement your own logic.
   /// According to the current language, you can display a text message
   /// with the help of [LoginTexts] class.
@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
       changeLanguageCallback: (LanguageOption? _language) {
         if (_language != null) {
           DialogBuilder(context).showResultDialog(
-              'Linguagem mudada com sucesso para: ${_language.value}.');
+              'Linguagem alterada sucesso para: ${_language.value}.');
           if (mounted) setState(() => language = _language);
         }
       },
@@ -44,84 +44,80 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   static List<LanguageOption> get _languageOptions => const <LanguageOption>[
-    LanguageOption(
-      value: 'Portugues',
-      code: 'BR',
-      iconPath: 'assets/images/br.png',
-    ),
-    LanguageOption(
-      value: 'English',
-      code: 'EN',
-      iconPath: 'assets/images/en.png',
-    ),
-  ];
+        LanguageOption(
+          value: 'Português',
+          code: 'BR',
+          iconPath: 'assets/images/br.png',
+        ),
+        LanguageOption(
+          value: 'English',
+          code: 'EN',
+          iconPath: 'assets/images/en.png',
+        ),
+      ];
 
   /// You can adjust the colors, text styles, button styles, borders
   /// according to your design preferences for *DESKTOP* view.
   /// You can also set some additional display options such as [showLabelTexts].
   LoginViewTheme get _desktopTheme => _mobileTheme.copyWith(
-    // To set the color of button text, use foreground color.
-    actionButtonStyle: ButtonStyle(
-      foregroundColor: MaterialStateProperty.all(Colors.red),
-    ),
-    dialogTheme: const AnimatedDialogTheme(
-      languageDialogTheme: LanguageDialogTheme(
-          optionMargin: EdgeInsets.symmetric(horizontal: 80)),
-    ),
-  );
+        // To set the color of button text, use foreground color.
+        actionButtonStyle: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all(Colors.red),
+        ),
+        dialogTheme: const AnimatedDialogTheme(
+          languageDialogTheme: LanguageDialogTheme(
+              optionMargin: EdgeInsets.symmetric(horizontal: 80)),
+        ),
+      );
 
   /// You can adjust the colors, text styles, button styles, borders
   /// according to your design preferences for *MOBILE* view.
   /// You can also set some additional display options such as [showLabelTexts].
   LoginViewTheme get _mobileTheme => LoginViewTheme(
-    // showLabelTexts: false,
-    backgroundColor: Colors.blue , // const Color(0xFF6666FF),
-    formFieldBackgroundColor: Colors.white,
-    formWidthRatio: 60,
-    // actionButtonStyle: ButtonStyle(
-    //   foregroundColor: MaterialStateProperty.all(Colors.blue),
-    // ),
-  );
+        // showLabelTexts: false,
+        backgroundColor: Colors.blue, // const Color(0xFF6666FF),
+        formFieldBackgroundColor: Colors.white,
+        formWidthRatio: 60,
+        // actionButtonStyle: ButtonStyle(
+        //   foregroundColor: MaterialStateProperty.all(Colors.blue),
+        // ),
+      );
 
   LoginTexts get _loginTexts => LoginTexts(
-    nameHint: "nome",
-    login: "Iniciar",
-    signUp: "Registrar",
-    forgotPassword: "Esqueceu a senha?",
-    passwordMatchingError: "Erro ",
-    confirmPasswordHint: "confirme a senha",
-    welcomeBack: "Bem vindo de volta",
-    welcomeBackDescription: "bem vindo de volta ao melhor. Estávamos esperando voce",
-    notHaveAnAccount: "Nao tem uma conta ?",
-    alreadyHaveAnAccount: "ja tem uma conta?",
-    welcome: "bem vindo ",
-    welcomeDescription: "Estavamos com saudades de vc ",
-  );
+        nameHint: "Nome",
+        login: "Iniciar",
+        signUp: "Registrar",
+        forgotPassword: "Esqueceu sua senha?",
+        passwordMatchingError: "Erro",
+        confirmPasswordHint: "Confirme sua senha",
+        welcomeBack: "Bem vindo de volta :D",
+        welcomeBackDescription: "Que saudade! \nEstavamos esperando por você",
+        notHaveAnAccount: "Não possui uma conta ?",
+        alreadyHaveAnAccount: "Ja possui uma conta?",
+        welcome: "Vamos começar :) ",
+        welcomeDescription: "É um prazer recebe-lo aqui!",
+      );
 
   /// You can adjust the texts in the screen according to the current language
   /// With the help of [LoginTexts], you can create a multilanguage scren.
-
-
 
   /// Social login options, you should provide callback function and icon path.
   /// Icon paths should be the full path in the assets
   /// Don't forget to also add the icon folder to the "pubspec.yaml" file.
   List<SocialLogin> _socialLogins(BuildContext context) => <SocialLogin>[
-    SocialLogin(
-        callback: () async => LoginFunctions(context).socialLogin('Google'),
-        iconPath: 'assets/images/google.png'),
-    SocialLogin(
-        callback: () async =>
-            LoginFunctions(context).socialLogin('Facebook'),
-        iconPath: 'assets/images/facebook.png'),
-    SocialLogin(
-        callback: () async =>
-            LoginFunctions(context).socialLogin('Linkedin'),
-        iconPath: 'assets/images/linkedin.png'),
-  ];
+        SocialLogin(
+            callback: () async => LoginFunctions(context).socialLogin('Google'),
+            iconPath: 'assets/images/google.png'),
+        SocialLogin(
+            callback: () async =>
+                LoginFunctions(context).socialLogin('Facebook'),
+            iconPath: 'assets/images/facebook.png'),
+        SocialLogin(
+            callback: () async =>
+                LoginFunctions(context).socialLogin('Linkedin'),
+            iconPath: 'assets/images/linkedin.png'),
+      ];
 }
-
-
 
 class LoginFunctions {
   /// Collection of functions will be performed on login/signup.
@@ -177,33 +173,33 @@ class DialogBuilder {
 
   /// Example loading dialog
   Future<void> showLoadingDialog() => showDialog(
-    context: context,
-    barrierDismissible: false,
-    builder: (BuildContext context) => WillPopScope(
-      onWillPop: () async => false,
-      child: const AlertDialog(
-        content:  SizedBox(
-          width: 100,
-          height: 100,
-          child: Center(
-            child: CircularProgressIndicator(
-              strokeWidth: 3,
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) => WillPopScope(
+          onWillPop: () async => false,
+          child: const AlertDialog(
+            content: SizedBox(
+              width: 100,
+              height: 100,
+              child: Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 3,
+                ),
+              ),
             ),
           ),
         ),
-      ),
-    ),
-  );
+      );
 
   /// Example result dialog
   Future<void> showResultDialog(String text) => showDialog(
-    context: context,
-    builder: (BuildContext context) => AlertDialog(
-      content: SizedBox(
-        height: 100,
-        width: 100,
-        child: Center(child: Text(text, textAlign: TextAlign.center)),
-      ),
-    ),
-  );
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          content: SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(child: Text(text, textAlign: TextAlign.center)),
+          ),
+        ),
+      );
 }
