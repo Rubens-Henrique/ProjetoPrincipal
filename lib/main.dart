@@ -62,7 +62,6 @@ class _InicioState extends State<Inicio> {
                 Navigator.pop(context);
               },
             ),
-
             ListTile(
               leading: Icon(Icons.map, color: Colors.black),
               title: Text('Mapa'),
@@ -108,6 +107,7 @@ class Home extends StatelessWidget {
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
                 color: Colors.blue,
+                fontFamily: 'PermanentMarker-Regular',
               ),
             ),
           ),
