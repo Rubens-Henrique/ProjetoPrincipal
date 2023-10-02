@@ -17,15 +17,24 @@ class Sobre extends StatelessWidget {
           children: [
             Text(
               "UAI, GÔ",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'PermanentMarker-Regular'),
             ),
             Text(
               "\nNossa missão:",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
-            Text("\nteste"),
-            Text("\n\nPara mais informações acesse nosso site uaigo.com.br"
-                "\nOu clique no botão abaixo para obter nossos contatos"),
+            Text(
+              "\nLevar o turismo de uma maneira divertida!",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "\n\nPara mais informações acesse nosso site: \nuaigo.com.br"
+              "\nOu clique no botão abaixo para obter nossos contatos",
+              style: TextStyle(fontSize: 20),
+            ),
             Image.asset("assets/images/Logo.png",
                 width: 350, height: 300, fit: BoxFit.cover),
             ElevatedButton(

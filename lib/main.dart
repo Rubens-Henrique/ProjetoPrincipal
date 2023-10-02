@@ -102,11 +102,11 @@ class Home extends StatelessWidget {
           Align(
             alignment: Alignment.topCenter,
             child: Text(
-              'Bem vindo ao UAI, GÔ',
+              '\n\n\nBem vindo ao UAI, GÔ',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Colors.blue,
+                color: Colors.white,
                 fontFamily: 'PermanentMarker-Regular',
               ),
             ),
@@ -129,6 +129,7 @@ class Home extends StatelessWidget {
   Widget _image() {
     return Image.asset(
       "assets/images/Fundo.jpeg",
+      fit: BoxFit.cover,
     );
   }
 }
