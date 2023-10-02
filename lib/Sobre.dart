@@ -26,7 +26,7 @@ class Sobre extends StatelessWidget {
             Text("\nteste"),
             Text("\n\nPara mais informações acesse nosso site uaigo.com.br"
                 "\nOu clique no botão abaixo para obter nossos contatos"),
-            Image.asset("assets/images/Logoapp.png",
+            Image.asset("assets/images/Logo.png",
                 width: 350, height: 300, fit: BoxFit.cover),
             ElevatedButton(
                 child: Text('AJUDA'),

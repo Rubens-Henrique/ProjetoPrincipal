@@ -130,7 +130,7 @@ class Home extends StatelessWidget {
 
   Widget _image() {
     return Image.asset(
-      "assets/images/Logoapp.png",
+      "assets/images/Logo.png",
     );
   }
 }
