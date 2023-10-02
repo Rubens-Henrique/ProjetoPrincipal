@@ -55,7 +55,7 @@ class _InicioState extends State<Inicio> {
             ),
             ListTile(
               leading: Icon(Icons.person, color: Colors.black),
-              title: Text('Registro / Login'),
+              title: Text('Usuário'),
               selected: _indiceAtual == 1,
               onTap: () {
                 onTabTapped(1);
@@ -106,7 +106,7 @@ class Home extends StatelessWidget {
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.black,
                 fontFamily: 'PermanentMarker-Regular',
               ),
             ),
@@ -118,8 +118,11 @@ class Home extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => LoginScreen()));
               },
-              child: Text('Clique aqui para continuar'),
+              child: Text('Fazer login'),
             ),
+          ),
+          Image.asset(
+            "assets/images/Logo.png",
           ),
         ],
       ),
@@ -128,8 +131,15 @@ class Home extends StatelessWidget {
 
   Widget _image() {
     return Image.asset(
-      "assets/images/Fundo.jpeg",
+      "assets/images/ti1.webp",
+      opacity: const AlwaysStoppedAnimation(.5),
       fit: BoxFit.cover,
+    );
+  }
+
+  Widget _logo() {
+    return Image.asset(
+      "assets/images/Logo.png",
     );
   }
 }
