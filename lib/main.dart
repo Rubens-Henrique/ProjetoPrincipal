@@ -41,29 +41,47 @@ class _InicioState extends State<Inicio> {
         title: Text("UAI, GÔ"),
       ),
       body: _telas[_indiceAtual],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _indiceAtual,
-        unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.white,
-        onTap: onTabTapped,
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Início",
-              backgroundColor: Colors.blue),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Perfil",
-              backgroundColor: Colors.blue),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.info),
-              label: "Sobre",
-              backgroundColor: Colors.blue),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.map),
-              label: "Mapa",
-              backgroundColor: Colors.blue),
-        ],
+      drawer: Drawer(
+        child: Column(
+          children: [
+            ListTile(
+              leading: Icon(Icons.home, color: Colors.black),
+              title: Text('Início'),
+              selected: _indiceAtual == 0,
+              onTap: () {
+                onTabTapped(0);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.person, color: Colors.black),
+              title: Text('Registro / Login'),
+              selected: _indiceAtual == 1,
+              onTap: () {
+                onTabTapped(1);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.info_rounded, color: Colors.black),
+              title: Text('Sobre o App'),
+              selected: _indiceAtual == 2,
+              onTap: () {
+                onTabTapped(2);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.map, color: Colors.black),
+              title: Text('Mapa'),
+              selected: _indiceAtual == 3,
+              onTap: () {
+                onTabTapped(3);
+                Navigator.pop(context);
+              },
+            ),
+          ], // children
+        ),
       ),
     );
   }
@@ -78,7 +96,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Center(child: Text('Home')),
       ),
       body: Stack(
         fit: StackFit.expand,
