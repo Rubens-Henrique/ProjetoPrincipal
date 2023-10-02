@@ -20,7 +20,6 @@ class Inicio extends StatefulWidget {
 class _InicioState extends State<Inicio> {
   int _indiceAtual = 0;
   final List<Widget> _telas = [
-    Home("Início"),
     LoginScreen(), // Agora inclui a tela LoginScreen diretamente aqui
     Sobre(
         "O aplicativo UAI, GÔ é um aplicativo que visa ajudar as viajantes a encontrarem não só os "

@@ -114,8 +114,8 @@ class _LoginScreenState extends State<LoginScreen> {
             iconPath: 'assets/images/facebook.png'),
         SocialLogin(
             callback: () async =>
-                LoginFunctions(context).socialLogin('Linkedin'),
-            iconPath: 'assets/images/linkedin.png'),
+                LoginFunctions(context).socialLogin('Instagram'),
+            iconPath: 'assets/images/insta.png'),
       ];
 }
 
