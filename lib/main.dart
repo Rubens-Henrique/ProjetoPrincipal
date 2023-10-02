@@ -62,21 +62,22 @@ class _InicioState extends State<Inicio> {
                 Navigator.pop(context);
               },
             ),
-            ListTile(
-              leading: Icon(Icons.info_rounded, color: Colors.black),
-              title: Text('Sobre o App'),
-              selected: _indiceAtual == 2,
-              onTap: () {
-                onTabTapped(2);
-                Navigator.pop(context);
-              },
-            ),
+
             ListTile(
               leading: Icon(Icons.map, color: Colors.black),
               title: Text('Mapa'),
               selected: _indiceAtual == 3,
               onTap: () {
                 onTabTapped(3);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.info_rounded, color: Colors.black),
+              title: Text('Sobre o App'),
+              selected: _indiceAtual == 2,
+              onTap: () {
+                onTabTapped(2);
                 Navigator.pop(context);
               },
             ),
