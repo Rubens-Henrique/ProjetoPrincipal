@@ -21,7 +21,7 @@ class _InicioState extends State<Inicio> {
   int _indiceAtual = 0;
   final List<Widget> _telas = [
     Home("Início"),
-    LoginScreen(), // Agora inclui a tela LoginScreen diretamente aqui
+    LoginScreen(),
     Sobre(
         "O aplicativo UAI, GÔ é um aplicativo que visa ajudar as viajantes a encontrarem não só os "
         "destinos mais atrativos para se divertir, como também buscar restaurantes,hospedagem e muito mais.Tudo isso em um só aplicativo"),
