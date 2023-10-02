@@ -128,7 +128,7 @@ class Home extends StatelessWidget {
 
   Widget _image() {
     return Image.asset(
-      "assets/images/Logo.png",
+      "assets/images/Fundo.jpeg",
     );
   }
 }
