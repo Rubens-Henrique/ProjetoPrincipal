@@ -7,8 +7,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_toolkit/flutter_map_toolkit.dart';
 import 'package:latlong2/latlong.dart';
 
-
-
 class Mapa extends StatelessWidget {
   const Mapa({Key? key}) : super(key: key);
 
@@ -19,7 +17,7 @@ class Mapa extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Mapa '),
+      home: const MyHomePage(title: 'UaiMap '),
     );
   }
 }
@@ -101,8 +99,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: (tapPosition, point) {
                     _mapEventTap.update(point);
                   },
-                  center: LatLng(32.553447, 53.064549),
-                  zoom: 5,
+                  center: LatLng(-19.9023173, -44.1292065),
+                  zoom: 10,
                 ),
                 layers: [
                   /// base map tile backed by mapbox
