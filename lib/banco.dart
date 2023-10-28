@@ -21,13 +21,12 @@ class BANCODADOS {
       join(await getDatabasesPath(), 'bancco.db'),
       version: 1,
       onCreate: _onCreate,
-      singleInstance: :true,
+      singleInstance: true,
     );
   }
 
   _onCreate(BANCODADOS, versao) async {
     await BANCODADOS.execute(_conta);
-    await BANCODADOS.execute(_endereco);
     await BANCODADOS.insert('nome', 'senha');
   }
 
@@ -37,21 +36,13 @@ class BANCODADOS {
     nome TEXT
     senha TEXT
     idade REAL 
+    estado TEXT
+     cidade TEXT
+    rua TEXT
+      numero REAL
   );
   ''';
 
-  String get _endereco => ''' 
- 
- CREATE TABLE endereco( 
-   CEP TEXT
-  estado TEXT
-  cidade TEXT
-  rua TEXT
-  numero REAL
-
-
-
-);  ''';
 
  Future <int> create ({required String id }) async {
 
@@ -72,9 +63,9 @@ return await database.rawInsert (
     int id = await bd.insert("usuarios", dadosUsuario);
     print("Salvo: $id " );
   }
-     Future<void> updateUser(int id,int nome, int idade , String senha,) async {
+     Future<void> updateUser(int id,int nome, int idade , String senha,String CEP ) async {
     Database db = await _initDatabase();
-    db.rawUpdate("UPDATE $_tableName SET name = '$nome', idade = '$idade' ,senha = '$senha' WHERE id = '$id'");
+    db.rawUpdate("UPDATE $_tableName SET name = '$nome', idade = '$idade' ,senha = '$senha', CEP = '$CEP', WHERE id = '$id'");
   }
 
  Future <void> delete (int id ) async { 
@@ -83,7 +74,7 @@ return await database.rawInsert (
    await database.rawDelete (''' DELETE FROM $tablename where id= ?''', [id] );
   
  }
- 
+
 }
 
 
