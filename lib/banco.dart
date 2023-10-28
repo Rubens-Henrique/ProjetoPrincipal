@@ -34,7 +34,7 @@ class BANCODADOS {
   String get _conta => ''' 
   CREATE TABLE  conta(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nomee TEXT
+    nome TEXT
     senha TEXT
     idade REAL 
   );
@@ -57,23 +57,36 @@ class BANCODADOS {
 
 final BANCODADOS=await database().database;
 return await database.rawInsert (
-  '''INSERT INTO _conta (nomee, id) VALUES (?,? )''',
+  '''INSERT INTO _conta (nome, id) VALUES (?,? )''',
   [id, DateTime.now().millisecondsSinceEpoch],
 
 );
 
  }
-
-
-
-}
+  _salvarDados(String nome, int idade) async {
+    Database bd = await _initDatabase();
+    Map<String, dynamic> dadosUsuario = {
+      "nome" : nome,
+      "idade" : idade
+    };
+    int id = await bd.insert("usuarios", dadosUsuario);
+    print("Salvo: $id " );
+  }
+     Future<void> updateUser(int id,int nome, int idade , String senha,) async {
+    Database db = await _initDatabase();
+    db.rawUpdate("UPDATE $_tableName SET name = '$nome', idade = '$idade' ,senha = '$senha' WHERE id = '$id'");
+  }
 
  Future <void> delete (int id ) async { 
 
-   final database = await database().database;
+   final database = await _initDatabase();
    await database.rawDelete (''' DELETE FROM $tablename where id= ?''', [id] );
   
  }
+ 
+}
+
+
  
 
 
