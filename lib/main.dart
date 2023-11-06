@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'Mapa.dart';
 import 'Perfil.dart';
 import 'Sobre.dart';
+import 'profile.dart';
 import 'package:animated_login/animated_login.dart';
 
 void main() {
@@ -25,7 +26,8 @@ class _InicioState extends State<Inicio> {
     Sobre(
         "O aplicativo UAI, GÔ é um aplicativo que visa ajudar as viajantes a encontrarem não só os "
         "destinos mais atrativos para se divertir, como também buscar restaurantes,hospedagem e muito mais.Tudo isso em um só aplicativo"),
-    Mapa()
+    Mapa(),
+    TelaUsuario()
   ];
 
   void onTabTapped(int index) {
@@ -77,6 +79,15 @@ class _InicioState extends State<Inicio> {
               selected: _indiceAtual == 2,
               onTap: () {
                 onTabTapped(2);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home, color: Colors.black),
+              title: Text('Perfil'),
+              selected: _indiceAtual == 4,
+              onTap: () {
+                onTabTapped(4);
                 Navigator.pop(context);
               },
             ),
