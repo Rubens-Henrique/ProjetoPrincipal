@@ -22,7 +22,6 @@ class _TelaUsuarioState extends State<TelaUsuario> {
         setState(() {
           id = data[0]['id']; // Obtém o ID da tabela.
           name = data[0]['nome'];
-          age = data[0]['idade'];
           email = data[0]['email'];
         });
       }
@@ -51,10 +50,6 @@ class _TelaUsuarioState extends State<TelaUsuario> {
             SizedBox(height: 20),
             Text(
               'Nome: $name',
-              style: TextStyle(fontSize: 24),
-            ),
-            Text(
-              'Idade: $age anos',
               style: TextStyle(fontSize: 24),
             ),
             Text(

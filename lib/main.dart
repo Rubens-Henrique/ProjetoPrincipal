@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'Mapa.dart';
-import 'Perfil.dart';
+import 'Cadastro.dart';
 import 'Sobre.dart';
 import 'profile.dart';
-import 'package:animated_login/animated_login.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -22,7 +21,7 @@ class _InicioState extends State<Inicio> {
   int _indiceAtual = 0;
   final List<Widget> _telas = [
     Home("Início"),
-    LoginScreen(),
+    CadastroScreen(),
     Sobre(
         "O aplicativo UAI, GÔ é um aplicativo que visa ajudar as viajantes a encontrarem não só os "
         "destinos mais atrativos para se divertir, como também buscar restaurantes,hospedagem e muito mais.Tudo isso em um só aplicativo"),
@@ -127,7 +126,7 @@ class Home extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()));
+                    MaterialPageRoute(builder: (context) => CadastroScreen()));
               },
               child: Text('Fazer login'),
             ),

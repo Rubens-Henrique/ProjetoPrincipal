@@ -3,11 +3,11 @@ import 'package:sqflite/sqflite.dart' as sql;
 
 class SQLHelper {
   static Future<void> criaTabela(sql.Database database) async {
-    await database.execute("""CREATE TABLE produtos(
+    await database.execute("""CREATE TABLE usuario(
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
         nome TEXT,
         email TEXT,
-        senha TEXT
+        senha TEXT,
         createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
 """);
@@ -15,8 +15,8 @@ class SQLHelper {
 
   static Future<sql.Database> db() async {
     return sql.openDatabase(
-      'dados.db',
-      version: 1,
+      'usuario.db',
+      version: 4,
       onCreate: (sql.Database database, int version) async {
         await criaTabela(database);
       },
@@ -27,19 +27,19 @@ class SQLHelper {
       String nome, String email, String senha) async {
     final db = await SQLHelper.db();
     final dados = {'nome': nome, 'email': email, 'senha': senha};
-    final id = await db.insert('dados', dados,
+    final id = await db.insert('usuario', dados,
         conflictAlgorithm: sql.ConflictAlgorithm.replace);
     return id;
   }
 
   static Future<List<Map<String, dynamic>>> resgataDados() async {
     final db = await SQLHelper.db();
-    return db.query('dados', orderBy: "id");
+    return db.query('usuario', orderBy: "id");
   }
 
   static Future<List<Map<String, dynamic>>> pegaUmDado(int id) async {
     final db = await SQLHelper.db();
-    return db.query('dados', where: "id = ?", whereArgs: [id], limit: 1);
+    return db.query('usuario', where: "id = ?", whereArgs: [id], limit: 1);
   }
 
   static Future<int> atualizaDados(
@@ -52,14 +52,14 @@ class SQLHelper {
       'createdAt': DateTime.now().toString()
     };
     final result =
-        await db.update('dados', dados, where: "id = ?", whereArgs: [id]);
+        await db.update('usuario', dados, where: "id = ?", whereArgs: [id]);
     return result;
   }
 
   static Future<void> apagaDado(int id) async {
     final db = await SQLHelper.db();
     try {
-      await db.delete("dados", where: "id = ?", whereArgs: [id]);
+      await db.delete("usuario", where: "id = ?", whereArgs: [id]);
     } catch (err) {
       debugPrint("Erro ao apagar o item item: $err");
     }
