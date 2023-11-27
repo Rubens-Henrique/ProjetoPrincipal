@@ -1,12 +1,39 @@
+import 'dart:async';
+import 'dart:ffi';
+
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
 
 class PontoTuristicoController extends GetxController {
   final latitude = 0.0.obs;
   final longitude = 0.0.obs;
+  StreamSubscription<Position> positionStream;
+  
 
 
 static PontoTuristicoController get to -> Get.find<PontoTuristicoController>();
+watchPosicao() async {
+    positionStream = Geolocator.getPositionStream().listen((Position position ) 
+{
+      if (position != null )
+      {
+         latitude.value= position.latitude;
+           longitude.value= position.longitude
+ }
+
+});
+
+
+}
+ 
+ @override
+ void onClose()
+{ positionStream.cancel();
+super.onClose();
+
+
+}
+
 
 Future<Position> _posicaoAtual() async {
 
@@ -19,7 +46,7 @@ Future<Position> _posicaoAtual() async {
   }
   permissao= await Geolocator.checkPermission();
 
-  if( permissao = LocationPermission.denied) {
+  if(permissao = LocationPermission.denied) {
 
     permissao= await Geolocator.requestPermission();
 
