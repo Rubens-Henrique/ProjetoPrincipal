@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+
+
+
+final appKey = GlobalKey();
+
+
 class PontosturisticosPage extends StatelessWidget {
   PontosturisticosPage({Key key}) : super(key: key);
 
@@ -42,6 +48,7 @@ class PontosturisticosPage extends StatelessWidget {
     final controller = Get.put(PontosturisticosPage());
 
     return Scaffold(
+       key: appKey,
       appBar: AppBar(
         title: Text('Pontos turísticos'),
         actions: [

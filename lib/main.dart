@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_config/flutter_config.dart';
 import 'Mapa.dart';
 import 'Cadastro.dart';
 import 'Sobre.dart';
 import 'profile.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await FlutterConfig.loadEnvVariables();
+
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Inicio(),
