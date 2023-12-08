@@ -4,8 +4,14 @@ import 'Mapa.dart';
 import 'Cadastro.dart';
 import 'Sobre.dart';
 import 'profile.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterConfig.loadEnvVariables();
 
