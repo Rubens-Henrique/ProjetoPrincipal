@@ -80,7 +80,7 @@ class PontoTuristicoController extends GetxController {
 
     if (permissao == LocationPermission.denied) {
       permissao = await Geolocator.requestPermission();
-
+//permissoes
       if (permissao == LocationPermission.denied) {
         return Future.error('Voce precisa autorizar o acesso a localização ');
       }
