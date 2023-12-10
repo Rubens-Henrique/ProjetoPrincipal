@@ -40,7 +40,7 @@ dependencies:
   bloc: ^8.1.0
   animated_login: ^1.7.2
   sqflite: ^2.3.0
-  firebase_core: ^2.23.0
+  firebase_core: ^2.24.1
   geolocator: ^10.1.0
   google_maps_flutter: ^2.5.0
   get: ^4.6.6

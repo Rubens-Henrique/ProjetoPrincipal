@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-
+class PontosTuristicosPage extends StatelessWidget {
 
 
 final appKey = GlobalKey();
 
 
-class PontosturisticosPage extends StatelessWidget {
-  PontosturisticosPage({Key key}) : super(key: key);
+
+  PontosTuristicosPage({Key key}) : super(key: key);
 
   filtro() {
     return SimpleDialog(
@@ -45,7 +45,8 @@ class PontosturisticosPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(PontosturisticosPage());
+final controller = Get.put(PontoTuristicoController());
+
 
     return Scaffold(
        key: appKey,

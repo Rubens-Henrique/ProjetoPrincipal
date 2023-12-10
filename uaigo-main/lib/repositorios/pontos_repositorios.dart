@@ -10,7 +10,7 @@ class PontosRepositorios extends ChangeNotifier {
       foto:
           'https://prefeitura.pbh.gov.br/sites/default/files/noticia/img/2017-09/Pra%C3%A7a%20da%20Liberdade%20Foto%20Divulga%C3%A7%C3%A3o.jpg',
       latitude: -19.9341685,
-      longitude: -43.9379572,
+      longitude: -43.9379572 - 43.9379572,
     ),
     Ponto(
       nome: 'Mercado Central ',

@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
+import 'package:example/pages/pontosturistico_page.dart';
 import 'package:example/repositorios/pontos_repositorios.dart';
+import 'package:example/widgets/pontos_detalhes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
@@ -11,26 +13,26 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class PontoTuristicoController extends GetxController {
   final latitude = 0.0.obs;
   final longitude = 0.0.obs;
-  late StreamSubscription<Position> positionStream;
-  LatLng _position = LatLng(-23.571505, -46.689104);
-  late GoogleMapController _mapsController;
-    final markers = Set<Marker>();
+  final raio = 0.0.obs;
 
+  late StreamSubscription<Position> positionStream;
+  LatLng _position = LatLng(-19.9341685, -43.9379572);
+  late GoogleMapController _mapsController;
+  final markers = Set<Marker>();
 
   static PontoTuristicoController get to =>
       Get.find<PontoTuristicoController>();
 
   get mapsController => _mapsController;
-  get position => _position
+  get position => _position;
 
-  onMapCreated(GoogleMapController gmc) async  { 
-    _mapsController= gmc; 
+  onMapCreated(GoogleMapController gmc) async {
+    _mapsController = gmc;
     getPosicao();
-    loadPonto();
+    loadPontos();
   }
 
-
- loadPontos() {
+  loadPontos() {
     final ponto = PontosRepositorios().pontos;
     ponto.forEach((ponto) async {
       markers.add(
@@ -51,14 +53,12 @@ class PontoTuristicoController extends GetxController {
       );
     });
   }
-  
 
   watchPosicao() async {
     positionStream = Geolocator.getPositionStream().listen((Position position) {
       if (position != null) {
         latitude.value = position.latitude;
         longitude.value = position.longitude;
-       
       }
     });
   }
@@ -97,8 +97,8 @@ class PontoTuristicoController extends GetxController {
       final posicao = await _posicaoAtual();
       latitude.value = posicao.latitude;
       longitude.value = posicao.longitude;
-        _mapsController.animateCamera();
-         CameraUpdate.newLatLng(LatLng(latitude.value,latitude.value));
+      _mapsController.animateCamera();
+      CameraUpdate.newLatLng(LatLng(latitude.value, latitude.value));
     } catch (e) {
       Get.snackbar(
         'Erro',
