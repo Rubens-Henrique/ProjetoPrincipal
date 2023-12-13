@@ -44,6 +44,7 @@ class _InicioState extends State<Inicio> {
     return Scaffold(
       appBar: AppBar(
         title: Text("UAI, GÔ"),
+        centerTitle: true,
       ),
       body: _telas[_indiceAtual],
       drawer: Drawer(
@@ -59,8 +60,8 @@ class _InicioState extends State<Inicio> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.person, color: Colors.black),
-              title: Text('Usuário'),
+              leading: Icon(Icons.login, color: Colors.black),
+              title: Text('Login'),
               selected: _indiceAtual == 1,
               onTap: () {
                 onTabTapped(1);
@@ -77,7 +78,7 @@ class _InicioState extends State<Inicio> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.home, color: Colors.black),
+              leading: Icon(Icons.account_box, color: Colors.black),
               title: Text('Perfil'),
               selected: _indiceAtual == 3,
               onTap: () {
@@ -86,8 +87,8 @@ class _InicioState extends State<Inicio> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.info_rounded, color: Colors.black),
-              title: Text('Uaigoso'),
+              leading: Icon(Icons.map, color: Colors.black),
+              title: Text('UaiMap'),
               selected: _indiceAtual == 4,
               onTap: () {
                 onTabTapped(4);
