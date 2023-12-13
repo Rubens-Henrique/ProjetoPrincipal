@@ -1,17 +1,12 @@
+import 'package:example/google.dart';
+import 'package:example/mapauaigo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_config/flutter_config.dart';
-import 'Mapa.dart';
 import 'Cadastro.dart';
 import 'Sobre.dart';
 import 'profile.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp();
-
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterConfig.loadEnvVariables();
 
@@ -34,8 +29,8 @@ class _InicioState extends State<Inicio> {
     Sobre(
         "O aplicativo UAI, GÔ é um aplicativo que visa ajudar as viajantes a encontrarem não só os "
         "destinos mais atrativos para se divertir, como também buscar restaurantes,hospedagem e muito mais.Tudo isso em um só aplicativo"),
-    Mapa(),
-    TelaUsuario()
+    TelaUsuario(),
+    Mapaa(),
   ];
 
   void onTabTapped(int index) {
@@ -73,15 +68,6 @@ class _InicioState extends State<Inicio> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.map, color: Colors.black),
-              title: Text('Mapa'),
-              selected: _indiceAtual == 3,
-              onTap: () {
-                onTabTapped(3);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
               leading: Icon(Icons.info_rounded, color: Colors.black),
               title: Text('Sobre o App'),
               selected: _indiceAtual == 2,
@@ -93,6 +79,15 @@ class _InicioState extends State<Inicio> {
             ListTile(
               leading: Icon(Icons.home, color: Colors.black),
               title: Text('Perfil'),
+              selected: _indiceAtual == 3,
+              onTap: () {
+                onTabTapped(3);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.info_rounded, color: Colors.black),
+              title: Text('Uaigoso'),
               selected: _indiceAtual == 4,
               onTap: () {
                 onTabTapped(4);
