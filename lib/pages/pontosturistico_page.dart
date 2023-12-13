@@ -12,7 +12,8 @@ class PontosTuristicosPage extends StatelessWidget {
     return Scaffold(
       key: appKey,
       appBar: AppBar(
-        title: Text('Pontos'),
+        title: Text('UaiMap'),
+        centerTitle: true,
       ),
       body: ChangeNotifierProvider<PontoTuristicoController>(
         create: (context) => PontoTuristicoController(),
